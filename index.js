@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var apiAI = require('apiai');
 var api = apiAI('f9acff6103814cf4a834f36232bb78d3');
+var Pusher = require('pusher');
 app.set('view engine', 'ejs');
 
 var chatRoom = 0;
@@ -14,6 +15,9 @@ app.get('/', function(req, res){
 	});
 	chatRoom = chatRoom + 1;
 });
+
+//
+
 
 io.on('connection', function(socket){
 
