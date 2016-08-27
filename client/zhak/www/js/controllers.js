@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, $timeout) {
+.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, $timeout,$state,$ionicHistory) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -10,13 +10,33 @@ angular.module('starter.controllers', [])
 
   $scope.$on('$ionicView.enter', function(e) {
 
-
   });
 
   $scope.preventFocus = function () {
 
     ionic.DomUtil.blurAll();
 
+  }
+  
+  $scope.bot = function(){
+    $ionicHistory.nextViewOptions({
+    disableBack: true
+    });
+    $state.go("app.general");
+  }
+  
+  $scope.goToLogin = function(){
+    $ionicHistory.nextViewOptions({
+    disableBack: true
+    });
+    $state.go("app.login");
+  }
+  
+  $scope.signup = function(){
+    $ionicHistory.nextViewOptions({
+    disableBack: true
+    });
+    $state.go("app.signup");
   }
 
 })
@@ -46,8 +66,20 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('LoginCtrl', function($scope, $stateParams) {
-
+.controller('LoginCtrl', function($scope, $stateParams ,$state,Auth) {
+  
+  var ref = new Firebase(FURL);
+  var userkey = "";
+  $scope.signIn = function (user) {
+    
+    
+  
+ 
+};
+  
+  $scope.signup = function(){
+    $state.go('app.signup');
+  }
 })
 
 .controller('SignUpCtrl', function($scope, $stateParams) {
