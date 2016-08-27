@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['firebase'])
 
 .controller('AppCtrl', function($scope, $ionicSideMenuDelegate, $timeout,$state,$ionicHistory) {
 
@@ -57,13 +57,13 @@ angular.module('starter.controllers', [])
     $ionicScrollDelegate.scrollBottom(true);
 
   }
-  
+
   $scope.sendMessage = function (message) {
     $scope.messages.push({user: 'Luis Bahamonde', avatar:'img/avatar1.gif', date:'10:43 AM', text:message.text});
     $scope.message.text = '';
     $ionicScrollDelegate.scrollBottom(true);
   }
-  
+
 })
 
 .controller('LoginCtrl', function($scope, $stateParams ,$state,Auth) {

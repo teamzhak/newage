@@ -6,6 +6,7 @@ var io = require('socket.io')(http);
 var apiAI = require('apiai');
 var api = apiAI('e5e584257d164eab95ffd6038c9f56f7')
 var firebase = require("firebase");
+var Pusher = require('pusher');
 
 // Initialize Firebase
 var config = {
@@ -18,9 +19,18 @@ firebase.initializeApp(config);
 
 const auth = firebase.auth();
 
+// Web Widget
+var pusher = new Pusher({
+    appId: '242119',
+    key: '288f483b43e2b9797716',
+    secret: 'd4007cd266b8c6980cb0',
+    cluster: 'ap1',
+    encrypted: true
+});
+
 // Routes
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '../../client/zhak/www/testpush.html');
 });
 
 app.use('/', routes);
