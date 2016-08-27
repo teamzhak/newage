@@ -17,14 +17,21 @@
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 		<script>
 			var socket = io();
+			const chatRoom = <%= chatRoom %> + 1;
+			socket.emit('new', chatRoom);
+			console.log(chatRoom);
 			$('form').submit(function(){
-				socket.emit('chat message', $('#m').val());
-			$('#m').val('');
-			return false;
+				var room = chatRoom;
+				var message = $('#m').val();
+				socket.emit('send', {room:room, message:message});
+				$('#m').val('');
+				return false;
 			});
-			socket.on('chat message', function(msg){
-				$('#messages').append($('<li>').text(msg));
+			socket.on('message', function(data){
+				console.log(data.message);
+				console.log(chatRoom);
+				$('#messages').append($('<li>').text(data.message));
 			});
 		</script>
 	</body>
-</html>
+</html> 
