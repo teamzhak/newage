@@ -19,7 +19,7 @@
 			var socket = io();
 			const chatRoom = <%= chatRoom %> + 1;
 			socket.emit('new', chatRoom);
-			console.log('chatroom: ' + chatRoom);
+			console.log(chatRoom);
 			$('form').submit(function(){
 				var room = chatRoom;
 				var message = $('#m').val();
