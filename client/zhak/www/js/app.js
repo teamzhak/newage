@@ -4,11 +4,51 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.services', 'ion-affix','LocalStorageModule', 'btford.socket-io', 'angularMoment','firebase','App'])
-
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.services', 'ion-affix','LocalStorageModule', 'btford.socket-io', 'angularMoment','firebase'])
+/*.factory('Auth',function(){
+    var config = {
+    apiKey: "AIzaSyA8ZywNc84IYWPzPQR7hcXh5JuHAce7Eqo",
+    authDomain: "mychat-91406.firebaseapp.com",
+    databaseURL: "https://mychat-91406.firebaseio.com",
+    storageBucket: "mychat-91406.appspot.com",
+  };
+  firebase.initializeApp(config);
+  
+  var test = {};
+  
+  test.createUser = function(email,password){
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(function(result){
+            alert("created user!")
+          })
+          .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+  }
+  
+  test.signIn = function(email,password){
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function (result){
+      alert(result.user.uid);
+    })
+    .catch(function(error) {
+    // Handle Errors here.
+    alert('shit')
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
+  
+  return test;
+  
+  }
+})*/
 // .constant('FirebaseUrl', 'https://mychat-91406.firebaseio.com/')
 //   .service('rootRef', ['FirebaseUrl', firebase])
-.constant('FURL', 'https://mychat-91406.firebaseio.com/')
+// .constant('FURL', 'https://mychat-91406.firebaseio.com/')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
