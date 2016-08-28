@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.services', 'ion-affix','LocalStorageModule', 'btford.socket-io', 'angularMoment','firebase'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.services', 'ion-affix','LocalStorageModule', 'btford.socket-io', 'angularMoment','firebase', 'ngCordova'])
 /*.factory('Auth',function(){
     var config = {
     apiKey: "AIzaSyA8ZywNc84IYWPzPQR7hcXh5JuHAce7Eqo",
@@ -13,9 +13,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     storageBucket: "mychat-91406.appspot.com",
   };
   firebase.initializeApp(config);
-  
+
   var test = {};
-  
+
   test.createUser = function(email,password){
     firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(function(result){
@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         // ...
       });
   }
-  
+
   test.signIn = function(email,password){
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (result){
@@ -41,9 +41,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     var errorMessage = error.message;
     // ...
   });
-  
+
   return test;
-  
+
   }
 })*/
 // .constant('FirebaseUrl', 'https://mychat-91406.firebaseio.com/')
@@ -52,7 +52,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -86,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-  
+
   .state('app.login', {
       url: '/login',
       views: {
@@ -96,7 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         }
       }
     })
-    
+
 .state('app.signup', {
       url: '/signup',
       views: {
@@ -116,7 +116,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
           controller: 'GeneralController'
         }
       }
-    })
+    }
+
+      .state('app.psychView', {
+        url:'/psychView',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/psychView.html',
+            controller: 'PsychCtrl'
+          }
+        }
+      })
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/general');

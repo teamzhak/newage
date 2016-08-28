@@ -17,26 +17,33 @@ angular.module('starter.controllers', ['firebase'])
     ionic.DomUtil.blurAll();
 
   }
-  
+
   $scope.bot = function(){
     $ionicHistory.nextViewOptions({
     disableBack: true
     });
     $state.go("app.general");
   }
-  
+
   $scope.goToLogin = function(){
     $ionicHistory.nextViewOptions({
     disableBack: true
     });
     $state.go("app.login");
   }
-  
+
   $scope.signup = function(){
     $ionicHistory.nextViewOptions({
     disableBack: true
     });
     $state.go("app.signup");
+  }
+
+  $scope.psychView = function(){
+    $ionicHistory.nextViewOptions({
+      disableBack: true
+    });
+    $state.go("app.psychView");
   }
 
 })
@@ -61,14 +68,14 @@ angular.module('starter.controllers', ['firebase'])
   $scope.sendMessage = function (message) {
     $scope.messages.push({user: 'Luis Bahamonde', avatar:'img/avatar1.gif', date:'10:43 AM', text:message.text});
     $scope.message.text = '';
-    
+
     $ionicScrollDelegate.scrollBottom(true);
   }
 
 })
 
 .controller('LoginCtrl', function($scope, $state,localStorageService,$ionicHistory) {
-  
+
 //   // if(!firebase){
 //   var config = {
 //     apiKey: "AIzaSyA8ZywNc84IYWPzPQR7hcXh5JuHAce7Eqo",
@@ -77,30 +84,30 @@ angular.module('starter.controllers', ['firebase'])
 //     storageBucket: "mychat-91406.appspot.com",
 //   };
 //   firebase.initializeApp(config);
-// // }    
-     
+// // }
+
   // var def = firebase.database().ref();
-  
- 
+
+
   $scope.signIn = function (name) {
-    
+
     localStorageService.set('username', name);
         $ionicHistory.nextViewOptions({
     disableBack: true
     });
     $state.go('app.general');
     // Auth.signIn(email,password);
-    
- 
+
+
 };
-  
+
   $scope.goToSignUp = function(){
     $state.go('app.signup');
   }
 })
 
 .controller('SignUpCtrl', function($scope, $stateParams) {
-  
+
   // // if(!firebase){
   // var config = {
   //   apiKey: "AIzaSyA8ZywNc84IYWPzPQR7hcXh5JuHAce7Eqo",
@@ -109,18 +116,19 @@ angular.module('starter.controllers', ['firebase'])
   //   storageBucket: "mychat-91406.appspot.com",
   // };
   // firebase.initializeApp(config);
-  // // }  
-      
+  // // }
+
   // var def = firebase.database().ref();
-  
+
   $scope.signUp = function(email,password){
         alert("hello");
         // Auth.createUser(email,password);
-        
-        
+
+
   }
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-
-});
+.controller('PsychCtrl', function($scope){
+  $scope.goToPatients = function(){
+    $state.go('app.psychView');
+})}

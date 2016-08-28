@@ -1,0 +1,13 @@
+<!-- Center content -->
+<ion-side-menu-content>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">Patients</h1>
+  </ion-header-bar>
+  <ion-content ng-app="psychView">
+    <ion-list>
+      <ion-item ng-repeat="task in tasks">
+        {{task.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-side-menu-content>
